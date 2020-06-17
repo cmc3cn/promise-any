@@ -43,18 +43,26 @@ var fn2  = new Promise((resolve, reject) => {
 });
 
 var fn3  = new Promise((resolve, reject) => {
-	setTimeout(reject,200,'a-300');
+	setTimeout(reject,300,'a-300');
 });
 
 
 Promise.any([
     fn1,fn2,fn3
 ]).then(function(value) {
-    console.log(value)
+    console.log(value)  //'a-900'
 });
 ```
 Promise.any 只对第一个实现很感兴趣，
 
 这点不同于 Promise.race
+
+```
+Promise.race([
+    fn1,fn2,fn3
+]).catch(function(value) {
+    console.log(value) //'a-300'
+});
+```
 
 Promise.race对第一个返回感兴趣，但是第一个返回可能是 reject状态的，所以从某种意义上来说， 不如promise.any实际意义更大。虽然Promise.race已经被部分内核实现，而Promise.any仍然处于草案
