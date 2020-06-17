@@ -1,6 +1,5 @@
 # promise-any
-
-[ ![Codeship Status for m0ppers/promise-any](https://codeship.com/projects/82cc13e0-f2e0-0131-e5b7-4a729fc31f8d/status?branch=master)](https://codeship.com/projects/27744)
+最简版 promise.any， 实现方式令人拍手称绝
 
 ES6 promises don't provide any(). A small library to implement them. Will convert arguments to promises if not already a promise.
 
