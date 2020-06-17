@@ -22,16 +22,9 @@ promiseAny([
 ```
 
 ```
-function reverse(promise) {
-    return new Promise((resolve, reject) => Promise.resolve(promise).then(reject, resolve));
-}
-
-Promise.any = function promiseAny(arr) {
-    return reverse(
-    	Promise.all(
-    		arr.map(reverse)
-    	)
-    );
+Promise.any = arr => {
+	let reverse = promise => new Promise((resolve, reject) => Promise.resolve(promise).then(reject, resolve));
+    	return reverse(Promise.all(arr.map(reverse)));
 };
 
 var fn1  = new Promise((resolve, reject) => {
